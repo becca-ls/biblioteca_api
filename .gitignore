@@ -1,0 +1,25 @@
+# Ruby / Bundler
+/.bundle/
+/vendor/bundle/
+.bundle/
+
+# Logs / tmp
+/log/*
+!/log/.keep
+/tmp
+/tmp/*
+!/tmp/.keep
+
+# Byebug / Spring / PID
+/.byebug_history
+spring/*.pid
+
+# Credentials / Keys
+/config/master.key
+
+# Coverage / artifacts
+/coverage/
+/*.log
+
+# System
+.DS_Store
