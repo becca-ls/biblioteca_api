@@ -1,3 +1,4 @@
+cat > .gitignore << 'EOF'
 # Ruby / Bundler
 /.bundle/
 /vendor/bundle/
