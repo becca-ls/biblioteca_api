@@ -1,0 +1,36 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # Mantém o pool padrão do Rails 8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # Use seu usuário do Ubuntu; como você é "rebecca", deixamos assim.
+  username: rebecca
+  # Não defina host/password aqui para usar o socket local (normalmente funciona sem senha)
+
+development:
+  <<: *default
+  database: biblioteca_api_development
+
+test:
+  <<: *default
+  database: biblioteca_api_test
+
+# Mantemos o bloco de produção que o Rails 8 gerou; você não precisa mexer nisso agora.
+production:
+  primary: &primary_production
+    <<: *default
+    database: biblioteca_api_production
+    username: biblioteca_api
+    password: <%= ENV["BIBLIOTECA_API_DATABASE_PASSWORD"] %>
+  cache:
+    <<: *primary_production
+    database: biblioteca_api_production_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *primary_production
+    database: biblioteca_api_production_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *primary_production
+    database: biblioteca_api_production_cable
+    migrations_paths: db/cable_migrate
