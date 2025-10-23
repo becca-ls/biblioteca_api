@@ -51,3 +51,7 @@ gem 'devise'
 gem 'devise-jwt'
 
 gem "pundit", "~> 2.5"
+
+gem "kaminari", "~> 1.2"
+
+gem "ransack", "~> 4.4"
