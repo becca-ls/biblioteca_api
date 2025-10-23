@@ -1,4 +1,5 @@
 class Material < ApplicationRecord
+  belongs_to :user
   has_many :authorships, dependent: :destroy
   has_many :authors, through: :authorships
 
@@ -16,3 +17,4 @@ class Material < ApplicationRecord
     end
   end
 end
+

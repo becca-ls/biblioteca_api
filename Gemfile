@@ -49,3 +49,5 @@ end
 # Auth
 gem 'devise'
 gem 'devise-jwt'
+
+gem "pundit", "~> 2.5"
