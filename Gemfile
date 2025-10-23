@@ -55,3 +55,5 @@ gem "pundit", "~> 2.5"
 gem "kaminari", "~> 1.2"
 
 gem "ransack", "~> 4.4"
+
+gem "faraday", "~> 2.14"

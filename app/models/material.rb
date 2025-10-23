@@ -1,7 +1,9 @@
 class Material < ApplicationRecord
+  ALLOWED_TYPES = %w[Book Article Video].freeze
   belongs_to :user
-  has_many :authorships, dependent: :destroy
+  has_many :authorships, dependent: :destroy, inverse_of: :material
   has_many :authors, through: :authorships
+  accepts_nested_attributes_for :authorships, allow_destroy: true
   enum :status, { draft: "draft", published: "published", archived: "archived" }
   validates :status, inclusion: { in: statuses.keys }
   validates :title, presence: true, length: { in: 3..100 }

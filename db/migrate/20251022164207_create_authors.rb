@@ -1,15 +1,15 @@
-class CreateAuthors < ActiveRecord::Migration[8.0]
+class CreateAuthors < ActiveRecord::Migration[7.1]
   def change
     create_table :authors do |t|
       t.string  :name, null: false
-      t.integer :kind, null: false, default: 0   # 0: person, 1: institution
-      t.text    :bio
-      t.string  :email
+      t.string  :kind, null: false               # "person" ou "institution"
+      t.string  :city
+      t.date    :birth_date                      # se for pessoa
+      t.integer :founded_year                    # se for instituição
 
       t.timestamps
     end
 
-    add_index :authors, :kind
-    add_index :authors, :email, unique: true
+    add_index :authors, [:name, :kind]
   end
 end
