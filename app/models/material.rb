@@ -7,6 +7,7 @@ class Material < ApplicationRecord
   validates :title, presence: true, length: { in: 3..100 }
   validates :description, length: { maximum: 1000 }, allow_blank: true
   validate  :typed_fields
+  validates :doi, uniqueness: true, if: -> { type == 'Article' && doi.present? }
   # Atributos que a busca Ransack pode usar
   def self.ransackable_attributes(_auth_object = nil)
   %w[
