@@ -10,14 +10,14 @@ class Material < ApplicationRecord
   validates :description, length: { maximum: 1000 }, allow_blank: true
   validate  :typed_fields
   validates :doi, uniqueness: true, if: -> { type == 'Article' && doi.present? }
-  # Atributos que a busca Ransack pode usar
+  
   def self.ransackable_attributes(_auth_object = nil)
   %w[
     title description status isbn url type user_id
     created_at updated_at
   ]
   end
-  # (Opcional) Quais associações podem ser usadas na busca
+  
   def self.ransackable_associations(_auth_object = nil)
     %w[authorships authors user]
   end

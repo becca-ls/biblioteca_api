@@ -1,4 +1,3 @@
-# app/models/author.rb
 class Author < ApplicationRecord
   KINDS = %w[person institution].freeze
 

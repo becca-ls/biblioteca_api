@@ -1,4 +1,3 @@
-# app/policies/material_policy.rb
 class MaterialPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
@@ -11,7 +10,7 @@ class MaterialPolicy < ApplicationPolicy
   end
 
   def show?
-    return true if record.published? # qualquer um pode ver publicados
+    return true if record.published? 
     user_owns?
   end
 

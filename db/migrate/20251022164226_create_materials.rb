@@ -1,7 +1,7 @@
 class CreateMaterials < ActiveRecord::Migration[8.0]
   def change
     create_table :materials do |t|
-      t.string :type,  null: false  # STI: Book / Article / Video
+      t.string :type,  null: false  
       t.string :title, null: false
       t.text   :description
       t.date   :published_at
