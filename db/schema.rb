@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_23_215148) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_23_234034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "authors", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "kind", default: 0, null: false
+    t.string "kind", default: "0", null: false
     t.text "bio"
     t.string "email"
     t.datetime "created_at", null: false

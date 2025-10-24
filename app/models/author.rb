@@ -5,9 +5,9 @@ class Author < ApplicationRecord
   has_many :authorships, dependent: :destroy
   has_many :materials, through: :authorships
 
-  enum :kind, { person: "person", institution: "institution" }  # <-- enum string
+  enum :kind, { person: "person", institution: "institution" }, prefix: true
 
-  validates :kind, inclusion: { in: KINDS }
+ 
   validates :name, presence: true, uniqueness: { scope: :kind }
 
   validate :consistent_attributes

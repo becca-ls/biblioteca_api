@@ -57,3 +57,9 @@ gem "kaminari", "~> 1.2"
 gem "ransack", "~> 4.4"
 
 gem "faraday", "~> 2.14"
+
+gem "rspec-rails", "~> 8.0", groups: [:development, :test]
+
+gem "factory_bot_rails", "~> 6.5", groups: [:development, :test]
+
+gem "shoulda-matchers", "~> 6.5", group: :test
